@@ -1,0 +1,12 @@
+table.vertical-center td {
+    vertical-align: middle;
+}
+table#gradebook td, th{
+    font-weight: normal;
+    text-align: center !important;
+    width: 200px; 
+}
+table#gradebook td.red {
+    width: 300px; 
+    text-align: left !important;
+}

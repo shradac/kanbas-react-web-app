@@ -1,0 +1,138 @@
+
+
+.module-name{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    line-height: 1.5 !important;
+    color: #3d454c !important;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6875rem;
+    font-style: italic;
+    color: inherit;
+    margin-left: 30px;
+}
+
+.check-icon-colour{
+    color: green;
+    
+}
+.check-icon-colour-assignments{
+    color:rgb(87, 137, 87);
+    
+}
+.ellipse-colour{
+    color:  gray;
+}
+.link{
+    color: green;
+}
+.link-title{
+    color: black;
+    text-decoration: none;
+}
+.link-title:hover{
+    color: var(--red);
+    text-decoration: underline;
+}
+.export-icon{
+    color: var(--red) !important;
+}
+.external-link{
+    color: var(--red) !important;
+}
+
+.list-group-border{
+    border-left-color:green !important;
+    border-left-width: 10px !important;
+    
+}
+
+.list-group-mine .list-group-item:hover {
+background-color: red;
+}
+.border-left-green {
+    border-left: 4px solid green !important;
+}
+
+.button-container button {
+    width: 100%;
+    font-size: 15px;
+    margin: 5px;
+    text-align: left;
+}
+.red {
+    color: var(--red);
+}
+.courses-home-main-content-right-side-title {
+    margin-bottom: -10px;
+    margin-top: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+}
+
+.courses-home-main-content-right-side-todo-list-item {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+.courses-home-main-content-right-side-todo-list-item-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-home-main-content-right-side-coming-up-title-item a {
+    color: var(--red);
+    font-size: small;
+    font-weight: normal;
+}
+
+.courses-home-main-content-right-side-coming-up-title-item {
+    margin-top: -10px;
+}
+
+
+.courses-home-main-content-right-side-coming-up-list-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+.courses-home-main-content-right-side-coming-up-list-item a {
+    color: var(--red);
+}
+
+.courses-home-main-content-right-side-coming-up-list-item i {
+    margin-right: 10px;
+}
+
+.courses-home-main-content-right-side-coming-up-list-item-description {
+    display: flex;
+    flex-direction: column;
+}
+.courses-home-main-content-right-side-todo-list-item {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    font-size: small;
+    margin-bottom: 5px;
+}
+.courses-home-main-content-right-side-todo-list-item a {
+    color: var(--red);
+}
+
+.courses-home-main-content-right-side-todo-list-item i {
+    margin-right: 10px;
+}
+.header-height{
+    height: 70px;
+}

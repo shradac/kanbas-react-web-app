@@ -1,0 +1,98 @@
+
+h2 {
+    font-size: 1.8em;
+    line-height: 1.5;
+    display: block;
+    margin: 6px 0;
+    font-family: "Lato Extended","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.link{
+    text-decoration:none; 
+    color: var(--red);
+}
+.link:hover{
+    color: var(--red);
+    text-decoration:underline;
+}
+
+.gray-btn {
+    background: #f5f5f5 !important;
+    color: #2d3b45 !important;
+    border: 1px solid;
+    border-color: #c7cdd1 !important;
+    border-radius: 3px !important;
+    transition: background-color .2s ease-in-out !important;
+    padding: 8px 14px !important;
+}
+.gray-btn:hover {
+    background: #ebebeb !important;
+    color: #2d3b45 !important;
+    border-color: #c7cdd1 !important;
+    border-radius: 3px !important;
+    transition: background-color .2s ease-in-out !important;
+    padding: 8px 14px !important;
+}
+
+.nav-toggle-and-crumbs {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px; 
+    padding-top: 20px; 
+    padding-left: 1rem;
+}
+
+.nav-toggle-btn {
+    margin-right: 0;
+    padding: 0;
+    width: 36px;
+    height: 30px;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1;
+    margin-right: 0;
+    text-align: center;
+}
+
+#breadcrumbs {
+    flex-grow: 1;
+    margin-left: 12px;
+}
+
+.profile-avatar {
+    margin-right: 20px;
+    width: 128px;
+    height: 128px;
+    border-radius: 500px;
+    border: 2px solid #d3d9d9;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+}
+.avatar {
+    color: gray;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.profile-header {
+    padding: 12px 0 0 0;
+    line-height: 1.25;
+    font-weight: normal;
+    color: rgb(74, 71, 71);
+}
+
+#avatar-section {
+    width:120px !important;
+}
+
+#profile-section {
+    width: 300px !important;
+}
+
+#edit-profile {
+    width: 200px !important;
+}

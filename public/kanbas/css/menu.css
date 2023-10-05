@@ -1,0 +1,135 @@
+
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.wd-flex-grow-1 {
+    flex-grow:2;
+}
+
+.wd-kanbas-navigation {
+    list-style: none;
+    padding: 0px;
+    width: 80px;
+    margin: 0px;
+}
+
+.wd-kanbas-navigation .wd-active {
+    background-color: white;
+}
+.wd-kanbas-navigation li.wd-active a {
+    color: var(--red);
+}
+
+.wd-kanbas-navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.wd-kanbas-navigation a i {
+    color: var(--red);
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.icon-container {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    width: 48px;
+    margin: 0 auto;
+    color: var(--red);
+    text-align: center;
+}
+
+.wd-kanbas-navigation-home-item{
+    padding: 2px;
+    width: 80px;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0.875rem;;
+    font-weight: normal;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.logo-in-menu {
+    padding: 10px; 
+    height: 70px;
+}
+
+.link{
+    text-decoration:none; 
+    color: var(--red) !important;
+}
+.link:hover{
+    color: var(--red);
+    text-decoration:underline;
+}
+
+.gray-btn {
+    background: #f5f5f5 !important;
+    color: #2d3b45 !important;
+    border: 1px solid;
+    border-color: #c7cdd1 !important;
+    border-radius: 3px !important;
+    transition: background-color .2s ease-in-out !important;
+    padding: 8px 14px !important;
+}
+.gray-btn:hover {
+    background: #ebebeb !important;
+    color: #2d3b45 !important;
+    border-color: #c7cdd1 !important;
+    border-radius: 3px !important;
+    transition: background-color .2s ease-in-out !important;
+    padding: 8px 14px !important;
+}
+
+.nav-toggle-and-crumbs {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.nav-toggle-btn {
+    margin-right: 0;
+    padding: 0;
+    width: 36px;
+    height: 30px;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1;
+    margin-right: 0;
+    text-align: center;
+}
+
+#breadcrumbs {
+    flex-grow: 1;
+    margin-left: 12px;
+}
+.breadcrumb-text {
+    font-size: 1.125rem !important;
+    white-space: nowrap;
+    color: var(--red) !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-text:hover {
+    text-decoration: underline !important;
+}
+
+.current-page {
+    color: black !important;
+}
+
+.black {
+    background-color: black !important;
+}
