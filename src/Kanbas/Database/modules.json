@@ -1,0 +1,117 @@
+[
+    {
+      "id": "1",
+      "name": "Introduction to Web Development",
+      "course": "RS101",
+      "lessons": [
+        {
+          "id": "M1.1",
+          "name": "HTML Basics"
+        },
+        {
+          "id": "M1.2",
+          "name": "CSS Fundamentals"
+        },
+        {
+          "id": "M1.3",
+          "name": "JavaScript Introduction"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Frontend Frameworks",
+      "course": "RS101",
+      "lessons": [
+        {
+          "id": "M2.1",
+          "name": "React.js"
+        },
+        {
+          "id": "M2.2",
+          "name": "Angular"
+        },
+        {
+          "id": "M2.3",
+          "name": "Vue.js"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Backend Development",
+      "course": "RS101",
+      "lessons": [
+        {
+          "id": "M3.1",
+          "name": "Node.js Basics"
+        },
+        {
+          "id": "M3.2",
+          "name": "Django Framework"
+        },
+        {
+          "id": "M3.3",
+          "name": "Ruby on Rails"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Introduction to Literature",
+      "course": "RS102",
+      "lessons": [
+        {
+          "id": "M4.1",
+          "name": "Poetry Analysis"
+        },
+        {
+          "id": "M4.2",
+          "name": "Classic Novels"
+        },
+        {
+          "id": "M4.3",
+          "name": "Shakespearean Literature"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Creative Writing",
+      "course": "RS102",
+      "lessons": [
+        {
+          "id": "M5.1",
+          "name": "Short Stories"
+        },
+        {
+          "id": "M5.2",
+          "name": "Poetry Writing"
+        },
+        {
+          "id": "M5.3",
+          "name": "Screenwriting"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Fine Arts",
+      "course": "RS103",
+      "lessons": [
+        {
+          "id": "M6.1",
+          "name": "Drawing Techniques"
+        },
+        {
+          "id": "M6.2",
+          "name": "Oil Painting"
+        },
+        {
+          "id": "M6.3",
+          "name": "Sculpture"
+        }
+      ]
+    }
+  ]
+  

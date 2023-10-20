@@ -1,0 +1,32 @@
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --red: #b52828;
+}
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+}
+.wd-flex-grow-1 {
+    flex-grow: 1;
+}
+#side-bar ul {
+    padding-left: 20px;
+}
+#side-bar {
+    min-width: 190px !important;
+}
+.margin-right-4{
+    margin-right: 4rem !important;
+}
+.margin-right-half{
+    margin-right: 0.5rem !important;
+}
+.red {
+    color: #b52828;
+}
