@@ -1,10 +1,36 @@
 import { useState } from "react";
 import db from "../../../Database";
 import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+} from "../assignmentsReducer.js";
+
 
 function App() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const location = useLocation();
+  const pathname = location.pathname;
+  const assignmentId = pathname.slice(pathname.lastIndexOf("/") + 1);
+  const assignment = db.assignments.find(
+    (assignment) => assignment._id === assignmentId
+  );
+
+  const [assignments, setAssignments] = useState(db.assignments);
+
+
+
+
+  const courseId = useParams().courseId;
+
+  const [title, setTitle] = useState(assignment.title);
+
+
+
+  const [description, setDescription] = useState("jcndjksnfjk");
   const [points, setPoints] = useState("");
   const [group, setGroup] = useState("Assignments");
   const [displayGrade, setDisplayGrade] = useState("Percentage");
@@ -34,18 +60,56 @@ function App() {
     setChecked(!checked);
   };
   const navigate = useNavigate();
+  // const handleSave = () => {
+  //   console.log("Actually saving assignment TBD in later assignments");
+  //   navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  // };
+
+
+
+const saveEditedAssignmentName = () => {
+  setAssignments((prevAssignmnets) =>
+  prevAssignmnets.map((assignment) => {
+      if (assignment._id === assignmentId) {
+        return {
+          ...assignment,
+         title: title,
+        };
+      } else {
+        return assignment;
+      }
+    })
+  );
+};
+
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    const updatedAssignment = {
+      _id: assignmentId,
+      title: title,
+    };
+  
+    const updatedAssignments = db.assignments.map((assignment) =>
+      assignment._id === assignmentId ? assignment :updatedAssignment
+    );
+
+  
+    console.log("Assignment saved successfully");
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+  
+  // const updateTitle = (title) => {
+  //   const newTitle = assignments.map((item) =>
+  //     item._id === title._id ? title : item
+  //   );
 
-  const location = useLocation();
-  const pathname = location.pathname;
-  const assignmentId = pathname.slice(pathname.lastIndexOf("/") + 1);
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
-  const courseId = useParams().courseId;
+
+
+
+  // const modules = useSelector((state) => state.modulesReducer.modules);
+  // const module = useSelector((state) => state.modulesReducer.module);
+  const dispatch = useDispatch();
+  console.log("assignment", assignment);
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -53,7 +117,7 @@ function App() {
         <p>Assignment Name</p>
       </div>
       <input
-        value={assignment.title}
+        value={title}
         onChange={(e) => setTitle(e.target.value)}
         className="form-control mb-4"
         placeholder="Name"
@@ -273,7 +337,8 @@ function App() {
               <button className="btn btn-secondary ps-2">Cancel</button>
             </Link>
 
-            <button onClick={handleSave} className="btn btn-danger me-2">
+            <button onClick={() => dispatch(addAssignment({ ...assignment, assignment: assignmentId }))}
+ className="btn btn-danger me-2">
               Save
             </button>
 

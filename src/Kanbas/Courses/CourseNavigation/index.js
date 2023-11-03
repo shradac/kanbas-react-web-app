@@ -30,7 +30,7 @@ function CourseNavigation() {
   const course = db.courses.find((course) => course._id === courseId);
   return (
     <div id="side-bar" className="d-none d-md-block col-md-2 section-menu ms-4">
-      <p class="ellipsis pt-3">{course.term}</p>
+      <p class="ellipsis pt-3">202410_2 Fall 2023 Semester Full Term Grad</p>
       {links.map((link, index) => (
         <div className="section ">
           <Link

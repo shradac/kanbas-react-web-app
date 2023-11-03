@@ -1,4 +1,3 @@
-
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Assignments from "./Assignments";
 import "../css/menu.css";
@@ -11,15 +10,19 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Home from "./Home";
 import Grades from "./Grades";
 import Modules from "./Modules";
-
+import { useState, useParams } from "react";
 
 function Courses() {
   const location = useLocation();
-  const pathname = location.pathname; 
-  const lastPath = pathname.slice(pathname.lastIndexOf('/') + 1);
+  const pathname = location.pathname;
+  const lastPath = pathname.slice(pathname.lastIndexOf("/") + 1);
+
+  // const { courseId } = useParams();
+  // const course = courses.find((course) => course._id === courseId);
+
   return (
     <div>
-      <Breadcrumb lastPath={lastPath}/>
+      <Breadcrumb lastPath={lastPath} />
 
       <div class="row d-flex mt-2">
         <CourseNavigation />
@@ -27,17 +30,14 @@ function Courses() {
         <Routes>
           <Route path="/" element={<Navigate to="Home" />} />
           <Route path="Home" element={<Home />} />
-              <Route path="Modules" element={<Modules />} />
+          <Route path="Modules" element={<Modules />} />
           <Route path="Assignments" element={<Assignments />} />
           <Route
             path="Assignments/:assignmentId"
-            element={<AssignmentEditor/>}/>
-          
+            element={<AssignmentEditor />}
+          />
+
           <Route path="Grades" element={<Grades />} />
-
-
-       
-
         </Routes>
       </div>
     </div>

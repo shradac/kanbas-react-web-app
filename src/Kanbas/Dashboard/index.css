@@ -162,3 +162,16 @@
     border-radius: 50%;
     
 }
+
+.form-inline {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-inline > * {
+    margin-right: 0.5rem; 
+  }
+
+  .button-margin {
+    margin-right: 10px;
+  }

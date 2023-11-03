@@ -5,8 +5,6 @@ function Home() {
   return (
     <>
       <div class="col-xl-7 col-lg-9 col-md-8 col-sm-12">
-        <BtnBar />
-        <hr className="mt-5"></hr>
         <ModuleList />
       </div>
       <Status />
