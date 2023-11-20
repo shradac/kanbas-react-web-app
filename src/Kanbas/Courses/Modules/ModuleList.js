@@ -4,54 +4,69 @@ import { FaEllipsisV } from "react-icons/fa";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Modal, Form } from "react-bootstrap";
-import db from "../../Database";
+import { useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+  setModules,
+} from "./modulesReducer";
+import {
+  findModulesForCourse,
+  createModule,
+  editModule,
+  removeModule,
+} from "./service";
 
 function ModuleList() {
   const { courseId } = useParams();
+  const dispatch = useDispatch();
+  const { modules } = useSelector((state) => state.modulesReducer);
+  const { module } = useSelector((state) => state.modulesReducer);
 
-  const [modules, setModules] = useState(db.modules);
-
-  const [module, setModule] = useState({ course: courseId });
   const [lesson, setLesson] = useState({ id: new Date().getTime().toString() });
   const courseModules = modules.filter((module) => module.course === courseId);
 
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
-  const addModule = (module) => {
-    setModules([
-      { ...module, id: new Date().getTime().toString(), lessons: [] },
-      ...modules,
-    ]);
-    closeModal();
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+      refresh();
+      closeModal();
+    });
+  };
+  const handleDeleteModule = (id) => {
+    removeModule(id).then((module) => {
+      dispatch(deleteModule(module));
+      refresh();
+    });
   };
 
   const [showLessonModal, setShowLessonModal] = useState(false);
-  const [selectedModuleId, setSelectedModuleId] = useState();
 
-  const openLessonModal = () => {
+  const openLessonModal = (id) => {
+    const module = modules.find((module) => module.id == id);
+    setSelectedModule(module);
     setShowLessonModal(true);
   };
   const closeLessonModal = () => setShowLessonModal(false);
 
   const addLessonModule = (lesson) => {
-    const module = modules.find((m) => m.id === selectedModuleId);
-    setModules((prevModules) =>
-      prevModules.map((m) => {
-        if (m.id === selectedModuleId) {
-          return {
-            ...m,
-            lessons: [...m.lessons, lesson],
-          };
-        } else {
-          return m;
-        }
-      })
-    );
-
-    closeLessonModal();
+    editModule({
+      ...selectedModule,
+      lessons: [...selectedModule.lessons, lesson],
+    }).then((module) => {
+      dispatch(updateModule(module));
+      refresh();
+      closeLessonModal();
+    });
   };
+
   const [selectedModule, setSelectedModule] = useState(module);
   const [showEditModuleNameModal, setShowEditModuleNameModal] = useState(false);
 
@@ -69,31 +84,17 @@ function ModuleList() {
 
   const closeEditModuleNameModal = () => {
     setSelectedModule(null);
-    // setEditedModuleName("");
     setShowEditModuleNameModal(false);
   };
 
   const saveEditedModuleName = () => {
-    setModules((prevModules) =>
-      prevModules.map((module) => {
-        if (module.id === selectedModule.id) {
-          return {
-            ...module,
-            name: editedModuleName,
-          };
-        } else {
-          return module;
-        }
-      })
-    );
-
-    closeEditModuleNameModal();
+    editModule({ ...selectedModule, name: editedModuleName }).then((mod) => {
+      dispatch(updateModule(mod));
+      refresh();
+      closeEditModuleNameModal();
+    });
   };
 
-  const deleteModule = (id) => {
-    const newModules = modules.filter((module) => module.id !== id);
-    setModules(newModules);
-  };
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div
       ref={ref}
@@ -105,6 +106,17 @@ function ModuleList() {
       {children}
     </div>
   ));
+  const refresh = () => {
+    findModulesForCourse(courseId).then((modules) =>
+      dispatch(setModules(modules))
+    );
+  };
+
+  useEffect(() => {
+    findModulesForCourse(courseId).then((modules) =>
+      dispatch(setModules(modules))
+    );
+  }, [courseId]);
 
   return (
     <>
@@ -143,19 +155,14 @@ function ModuleList() {
                   <input
                     value={module.name}
                     onChange={(e) =>
-                      setModule({
-                        ...module,
-                        name: e.target.value,
-                      })
+                      dispatch(setModule({ ...module, name: e.target.value }))
                     }
                   />
                 </div>
 
                 <button
                   className="list-group-item btn btn-secondary"
-                  onClick={() => {
-                    addModule(module);
-                  }}
+                  onClick={handleAddModule}
                 >
                   Add
                 </button>
@@ -177,10 +184,7 @@ function ModuleList() {
                     <input
                       value={lesson.name}
                       onChange={(e) =>
-                        setLesson({
-                          ...lesson,
-                          name: e.target.value,
-                        })
+                        setLesson({ ...lesson, name: e.target.value })
                       }
                     />
                   </div>
@@ -219,9 +223,7 @@ function ModuleList() {
                   <AiOutlinePlus
                     className="me-3"
                     onClick={() => {
-                      setSelectedModuleId(module.id);
-                      openLessonModal();
-                      
+                      openLessonModal(module.id);
                     }}
                   />
 
@@ -240,7 +242,7 @@ function ModuleList() {
                         Edit
                       </Dropdown.Item>
 
-                      <Dropdown.Item onClick={() => deleteModule(module.id)}>
+                      <Dropdown.Item onClick={() => handleDeleteModule(module.id)}>
                         Delete
                       </Dropdown.Item>
                     </Dropdown.Menu>
@@ -275,7 +277,6 @@ function ModuleList() {
                       </Form>
                     </Modal.Body>
                   </Modal>
-
                 </p>
               </li>
 

@@ -17,10 +17,6 @@ function WorkingWithArrays() {
     const response = await axios.get(API);
     setTodos(response.data);
   };
-  const removeTodo = async (todo) => {
-    const response = await axios.get(`${API}/${todo.id}/delete`);
-    setTodos(response.data);
-  };
   const fetchTodoById = async (id) => {
     const response = await axios.get(`${API}/${id}`);
     setTodo(response.data);
