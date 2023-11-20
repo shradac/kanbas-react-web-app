@@ -46,9 +46,7 @@ function ModuleList() {
       refresh();
     });
   };
-
   const [showLessonModal, setShowLessonModal] = useState(false);
-
   const openLessonModal = (id) => {
     const module = modules.find((module) => module.id == id);
     setSelectedModule(module);
