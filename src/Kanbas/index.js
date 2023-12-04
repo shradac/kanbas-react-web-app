@@ -6,7 +6,7 @@ import Courses from "./Courses";
 import store from "./store";
 import { Provider } from "react-redux";
 import Signin from "./Users/signin";
-import Signup from "./Users/singup";
+import Signup from "./Users/signup";
 import Account from "./Users/account";
 import UserTable from "./Users/table";
 
